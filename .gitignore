@@ -1,3 +1,4 @@
-vendor
+composer.phar
 sample/vendor
 sample/composer.lock
+vendor
