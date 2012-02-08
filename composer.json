@@ -1,0 +1,29 @@
+{
+    "name": "dflydev/embedded-composer-application",
+    "type": "application",
+    "description": "Embedded Composer Application",
+    "homepage": "http://github.com/dflydev/dflydev-embedded-composer-application",
+    "keywords": ["sample", "embedded", "composer", "application"],
+    "license": "New BSD License",
+    "authors": [
+        {
+            "name": "Dragonfly Development Inc.",
+            "email": "info@dflydev.com",
+            "homepage": "http://dflydev.com"
+        },
+        {
+            "name": "Beau Simensen",
+            "email": "beau@dflydev.com",
+            "homepage": "http://beausimensen.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2",
+        "composer/composer": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "dflydev\\embedded\\composer": "src"
+        }
+    }
+}

@@ -1,0 +1,23 @@
+#!/usr/bin/env php
+<?php
+
+if (
+    // Check where autoload would be if this is Sculpin included
+    // as a dependency.
+    (!$classLoader = @include __DIR__.'/../../../.composer/autoload.php') and
+    // Check where autoload would be if this is a development version
+    // of Sculpin. (based on actual file)
+    (!$classLoader = @include __DIR__.'/../vendor/.composer/autoload.php')
+) {
+    die('You must set up the project dependencies, run the following commands:
+
+    bin/composer install
+
+');
+}
+
+use dflydev\embedded\composer\console\Application;
+
+// run the console application
+$application = new Application($classLoader);
+$application->run();

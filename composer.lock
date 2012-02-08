@@ -1,0 +1,21 @@
+{
+    "hash": "116fe29b2fe4f220c96c35ccb58fb953",
+    "packages": [
+        {
+            "package": "symfony\/process",
+            "version": "2.1.0-dev"
+        },
+        {
+            "package": "symfony\/finder",
+            "version": "2.1.0-dev"
+        },
+        {
+            "package": "symfony\/console",
+            "version": "2.1.0-dev"
+        },
+        {
+            "package": "composer\/composer",
+            "version": "master-dev"
+        }
+    ]
+}
