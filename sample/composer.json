@@ -2,14 +2,14 @@
     "name": "dflydev/embedded-composer-application-broken",
     "require": {
         "php": ">=5.3.2",
-        "symfony/finder": "*",
-        "dflydev/embedded-composer-application": "*"
+        "symfony/finder": "dev-master",
+        "dflydev/embedded-composer-application": "dev-master",
+        "dflydev/markdown": "dev-master"
     },
-    "repositories": {
-        "sculpin": {
-            "vcs": {
-                "url": "git://github.com/dflydev/dflydev-embedded-composer-application.git"
-            }
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git://github.com/dflydev/dflydev-embedded-composer-application.git"
         }
-    }
+    ]
 }
