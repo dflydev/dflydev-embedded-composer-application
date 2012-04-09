@@ -14,6 +14,7 @@ namespace dflydev\embedded\composer\console\command;
 use Composer\Command\InstallCommand as BaseInstallCommand;
 use Composer\Factory;
 use Composer\IO\ConsoleIO;
+use Composer\Installer;
 use Composer\Json\JsonFile;
 use Composer\Repository\FilesystemRepository;
 use Composer\Script\EventDispatcher;
@@ -37,17 +38,18 @@ class ComposerInstallCommand extends BaseInstallCommand
         } else {
             $filesystemRepository = null;
         }
-        return $this->install(
-            $io,
-            $composer,
-            $eventDispatcher,
-            (Boolean)$input->getOption('prefer-source'),
-            (Boolean)$input->getOption('dry-run'),
-            (Boolean)$input->getOption('verbose'),
-            (Boolean)$input->getOption('no-install-recommends'),
-            (Boolean)$input->getOption('install-suggests'),
-            false,
-            $filesystemRepository
-        );
+
+        $install = Installer::create($io, $composer);
+
+        $install
+            ->setDryRun($input->getOption('dry-run'))
+            ->setVerbose($input->getOption('verbose'))
+            ->setPreferSource($input->getOption('prefer-source'))
+            ->setInstallRecommends(!$input->getOption('no-install-recommends'))
+            ->setInstallSuggests($input->getOption('install-suggests'))
+            ->setAdditionalInstalledRepository($filesystemRepository)
+        ;
+
+        return $install->run() ? 0 : 1;
     }
 }
